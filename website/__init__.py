@@ -10,8 +10,8 @@ DB_NAME = "database.db"
 
 
 def create_app():
-    app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'mySecretKey'
+    app = Flask(__name__)  # This will initialize the Flask app
+    app.config['SECRET_KEY'] = 'mySecretKey'  # we have to create a pass. In production we do not share this key
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
