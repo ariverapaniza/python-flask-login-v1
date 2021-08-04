@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
     content %}
     <form method="POST">
-      <h3 align="center">Sign Up</h3>
+      <h3 align="center">Sign Up</h3>  <!-- The following code is all Bootstrap -->
       <div class="form-group">
         <label for="email">Email Address</label>
         <input
@@ -10,7 +10,7 @@
           id="email"
           name="email"
           placeholder="Enter email"
-        />
+        />  <!-- The ID should match the "name" in order to work properly in the backend -->
       </div>
       <div class="form-group">
         <label for="firstName">First Name</label>

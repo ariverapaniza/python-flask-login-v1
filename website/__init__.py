@@ -15,10 +15,10 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    from .views import views
+    from .views import views  # in here we are telling the code to import the "blueprint" views.py
     from .auth import auth
 
-    app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(views, url_prefix='/')  # and with this we are telling the code to register the views blueprint. The / means that there are not prefix. 
     app.register_blueprint(auth, url_prefix='/')
 
     from .models import User, Note

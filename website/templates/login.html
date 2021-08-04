@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block title %}Login{% endblock %} 
 {% block content %}
-    <form method="POST">
+    <form method="POST">  <!-- The following code is all Bootstrap -->
       <h3 align="center">Login</h3>
       <div class="form-group">
         <label for="email">Email Address</label>
@@ -10,7 +10,7 @@
           id="email"
           name="email"
           placeholder="Enter email"
-        />
+        />  <!-- The ID should match the "name" in order to work properly in the backend -->
       </div>
       <div class="form-group">
         <label for="password">Password</label>

@@ -5,10 +5,10 @@ from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 
-auth = Blueprint('auth', __name__)
+auth = Blueprint('auth', __name__)     # Blueprint method means that is telling the app that inside the app we have multiple routes
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login', methods=['GET', 'POST'])  # We have to create the routes for the login logout and sign up methods using "defined functions" depending of the action taken by the user. This one is for the LOGIN action.  Notice that this has a prefix, in this case is "/login, /logout, /sign-up" calling different routes and depending of the route we take we will be redirected to an specific page
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -17,7 +17,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
+                flash('Logged in successfully!', category='success')  # THis is a variable that when called in the html it will display the message. The python code in the html is created between 2 curly brackets "{{ example="message" }}" like this
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
@@ -28,14 +28,14 @@ def login():
     return render_template("login.html", user=current_user)
 
 
-@auth.route('/logout')
+@auth.route('/logout')  # This is to the LOG OUT action
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/sign-up', methods=['GET', 'POST'])  #  and this is for the SIGN UP method
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')

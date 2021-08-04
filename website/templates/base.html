@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <title>{% block title %}Base Template{% endblock %}</title>
-    <!-- This Jinja block is going to change the title name when we use and define another web page -->
+    <!-- This Jinja block is going to change the title name when we use and define another web page. It is very important to remember that when we use the "curly brackets with the percentage sign" we can put Python code like "for loops, if statements, an expression or a Block" that can be changed in another template. Since this one is the Base template, in the other html we use the same code and it will change the title for another thing that we defined -->
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,13 +25,13 @@
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbar"
-      >
+        data-target="#navbar"  
+      > <!-- This is calling the # is calling the "navbar ID" -->
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated %}  <!-- This is a python code using "if else" to let know the page in the NAVBAR if is logged which pages links to display -->
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           {% else %}
@@ -46,7 +46,7 @@
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
     <div class="alert alert-danger alter-dismissable fade show" role="alert">
-      {{ message }}
+      {{ message }}  <!-- This will call the predefined python code in the python file, in this case the variable "category" -->
       <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -58,9 +58,9 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    {% endif %} {% endfor %} {% endif %} {% endwith %}
+    {% endif %} {% endfor %} {% endif %} {% endwith %}  <!-- This is important to finish in this case the IF statements -->
 
-    <div class="container">{% block content %} {% endblock %}</div>
+    <div class="container">{% block content %} {% endblock %}</div>  <!-- This is the block that we are going to load in the other pages looking for the "div container" -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
