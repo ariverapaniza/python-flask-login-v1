@@ -48,11 +48,11 @@
     <div class="alert alert-danger alter-dismissable fade show" role="alert">
       {{ message }}  <!-- This will call the predefined python code in the python file, in this case the variable "category" -->
       <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>  <!-- This is to display the "X" button to close the message, it is a bootstrap button -->
       </button>
     </div>
     {% else %}
-    <div class="alert alert-success alter-dismissable fade show" role="alert">
+    <div class="alert alert-success alter-dismissable fade show" role="alert">  <!-- This will do the same as the previous code but with the success message -->
       {{ message }}
       <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
