@@ -18,14 +18,14 @@ def login():
         if user:
             if check_password_hash(user.password, password):  # if the user exist we check the password with the database and the password entered into the form, if it match access granted!
                 flash('Logged in successfully!', category='success')  # THis is a variable that when called in the html it will display the message. The python code in the html is created between 2 curly brackets "{{ example="message" }}" like this.  The "flash" is a flask method to display error messages in the html. the "category" parameter is to get a category for the error messages, it can have any name. 
-                login_user(user, remember=True)  # This will remember that the user is logged in until it logs out
+                login_user(user, remember=True)  # This will remember that the user is logged in until it logs out. The remember part is that as long as the server is running it will remember the current user. 
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
             flash('Email does not exist.', category='error')
 
-    return render_template("login.html", user=current_user)
+    return render_template("login.html", user=current_user)  # THis will use the default if else statement in the base template to show if the user is or is not logged in.
 
 
 @auth.route('/logout')  # This is to the LOG OUT action

@@ -31,7 +31,7 @@ def create_app():
 
     @login_manager.user_loader  # This will tell flask to load the user
     def load_user(id):
-        return User.query.get(int(id))
+        return User.query.get(int(id))  # This will tell flask to load the user
 
     return app
 
